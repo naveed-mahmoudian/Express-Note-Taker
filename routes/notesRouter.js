@@ -18,13 +18,13 @@ notesRouter.post("/", (req, res) => {
       id: uuidv4(),
     };
 
-    fs.readFile("../db/db.json", "utf-8", (err, data) => {
+    fs.readFile("./db/db.json", "utf-8", (err, data) => {
       if (err) {
         console.error(err);
       } else {
         const parsedData = JSON.parse(data);
         parsedData.push(newNote);
-        fs.writeFile("../db/db.json", JSON.stringify(parsedData), (err) => {
+        fs.writeFile("./db/db.json", JSON.stringify(parsedData), (err) => {
           if (err) {
             console.error(err);
           } else {
