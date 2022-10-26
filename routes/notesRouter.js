@@ -1,11 +1,12 @@
 const express = require("express");
 const notesRouter = express.Router();
-const db = require("../db/db.json");
+// const db = require("../db/db.json");
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
 notesRouter.get("/", (req, res) => {
-  res.json(db);
+  const dbFile = fs.readFileSync("./db/db.json", (err) => console.log(err));
+  res.json(JSON.parse(dbFile));
 });
 
 notesRouter.post("/", (req, res) => {
