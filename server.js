@@ -13,11 +13,11 @@ app.use("/api", apiRouter);
 
 // Routers
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+  res.status(200).sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+  res.status(200).sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // Create server

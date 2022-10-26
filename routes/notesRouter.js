@@ -5,7 +5,7 @@ const fs = require("fs");
 
 notesRouter.get("/", (req, res) => {
   const dbFile = fs.readFileSync("./db/db.json", (err) => console.log(err));
-  res.json(JSON.parse(dbFile));
+  res.status(200).json(JSON.parse(dbFile));
 });
 
 notesRouter.post("/", (req, res) => {
@@ -39,14 +39,17 @@ notesRouter.post("/", (req, res) => {
       body: newNote,
     };
 
-    res.json(newNote);
+    res.status(201).json(newNote);
   } else {
     res.status(500).json({ message: "Error saving note" });
   }
 });
 
 notesRouter.delete("/:id", (req, res) => {
-  res.json(req.params.id);
+  if (req.params.id) {
+  } else {
+    res.status(500).json({ message: "Not a valid id" });
+  }
 });
 
 module.exports = notesRouter;
