@@ -44,4 +44,9 @@ notesRouter.post("/", (req, res) => {
     res.status(500).json({ message: "Error saving note" });
   }
 });
+
+notesRouter.delete("/:id", (req, res) => {
+  res.json(req.params.id);
+});
+
 module.exports = notesRouter;
