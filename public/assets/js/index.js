@@ -133,7 +133,11 @@ const renderNoteList = async (notes) => {
     const spanEl = document.createElement("span");
     spanEl.classList.add("list-item-title");
     spanEl.innerText = text;
-    spanEl.addEventListener("click", handleNoteView);
+
+    // Fixes event listener error when there are no saved notes
+    if (spanEl.innerText !== "No saved Notes") {
+      spanEl.addEventListener("click", handleNoteView);
+    }
 
     liEl.append(spanEl);
 
