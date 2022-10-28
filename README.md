@@ -27,7 +27,7 @@ To use this application you can run `npn run watch` to start the server. The def
 
 [Click Here for the Deployed Application](https://dry-reef-82255.herokuapp.com/)
 
-To use the deployed application, click on the `Get Started` button. You can create a new note by clicking the `+` icon on the top right. Your saved notes will appear in the column on the left and populate the `db.json` file. To delete a note, simply click on the red trash can icon and it will be removed from the `db.json` file.
+To use the deployed application, click on the `Get Started` button. You can create a new note by clicking the `+` icon on the top right. Your saved notes will appear in the column on the left and populate the `db.json` file. To delete a note, simply click on the red trash can icon next to that note and it will be removed from the `db.json` file.
 
 ## License
 
@@ -87,10 +87,10 @@ Example `POST` Request:
 `http://localhost:3001/api/notes`
 
 ```
-"body":
+body:
 {
-	"title": "Test Title",
-	"text": "Test text"
+	title: "Test Title",
+	text: "Test text"
 }
 ```
 
