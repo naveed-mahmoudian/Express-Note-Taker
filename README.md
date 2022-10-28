@@ -25,6 +25,8 @@ To install, please ensure you have `node.js` installed on your computer. Then cl
 
 To use this application you can run `npn run watch` to start the server. The default port is set to `3001`. To change the port, adjust the `PORT` variable at the top of the `server.js` file.
 
+![Application Screenshot](./public/assets/images/application_screenshot.png)
+
 [Click Here for the Deployed Application](https://dry-reef-82255.herokuapp.com/)
 
 To use the deployed application, click on the `Get Started` button. You can create a new note by clicking the `+` icon on the top right. Your saved notes will appear in the column on the left and populate the `db.json` file. To delete a note, simply click on the red trash can icon next to that note and it will be removed from the `db.json` file.
