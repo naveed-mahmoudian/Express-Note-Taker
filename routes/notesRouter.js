@@ -5,7 +5,7 @@ const fs = require("fs");
 const { parse } = require("path");
 
 notesRouter.get("/", (req, res) => {
-  const dbFile = fs.readFileSync("./db/db.json", (err) => console.log(err));
+  const dbFile = fs.readFileSync("./db/db.json", (err) => console.error(err));
   res.status(200).json(JSON.parse(dbFile));
 });
 
@@ -29,17 +29,11 @@ notesRouter.post("/", (req, res) => {
           if (err) {
             console.error(err);
           } else {
-            console.log("Successfully wrote file");
+            console.log("Successfully wrote to db.json");
           }
         });
       }
     });
-
-    const response = {
-      status: "Success",
-      body: newNote,
-    };
-
     res.status(201).json(newNote);
   } else {
     res.status(500).json({ message: "Error saving note" });
@@ -62,7 +56,7 @@ notesRouter.delete("/:id", (req, res) => {
             if (err) {
               console.error(err);
             } else {
-              console.log("Successfully deleted note and rewrote file");
+              console.log("Successfully deleted note and rewrote to db.json");
               res.status(200).json({ message: "Note deleted!" });
             }
           });
